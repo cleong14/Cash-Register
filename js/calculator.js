@@ -1,27 +1,38 @@
 // make calculator functional in module pattern style
 var myCalculator = (function calculatorModule () {
-  var calculatorTotal = 0;
-  var calculatorCash = 0;
+  var registerTotal = 0;
+  var registerCash = 0;
 
   var calculator = {
+    // set current number
+    setTotal: function (num) {
+      registerTotal = num;
+    },
+
+    // get total 
+    getTotal: function () {
+      return registerTotal;
+    },
+
     // perform addition
     add: function (num) {
-      calculatorTotal += num;
+      registerTotal += num;
+      return registerTotal;
     },
 
     // perform subtraction
     subtract: function (num) {
-      calculatorTotal -= num;
+      registerTotal -= num;
     },
 
     // perform multiplication
     multiply: function (num) {
-      calculatorTotal *= num;
+      registerTotal *= num;
     },
 
     // perform division
     divide: function (num) {
-      calculatorTotal /= num;
+      registerTotal /= num;
     },
 
     // get balance
@@ -31,17 +42,17 @@ var myCalculator = (function calculatorModule () {
 
     // deposit calculatorCash
     depositCash: function () {
-      calculatorCash += calculatorTotal;
+      calculatorCash += registerTotal;
     },
 
     // withdraw calculatorCash
     withdrawCash: function () {
-      calculatorCash -= calculatorTotal;
+      calculatorCash -= registerTotal;
     },
     
-    // clear calculatorTotal
+    // clear registerTotal
     clearTotal: function () {
-      calculatorTotal = 0;
+      registerTotal = 0;
     }
   };
 
